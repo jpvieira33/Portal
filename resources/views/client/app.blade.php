@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Painel do Cliente | {{env('APP_NAME')}}</title>
     @routes
-    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
+    @vite('resources/css/app.css')
+    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue", "resources/css/client/app.css"])
     @inertiaHead
 </head>
 <body>

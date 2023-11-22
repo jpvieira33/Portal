@@ -1,16 +1,25 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import resolve from "@vitejs/plugin-vue";
+import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: [
+                'resources/js/app.js',
+                'resources/css/principal/app.css',
+                'resources/css/admin/app.css',
+                'resources/css/client/app.css'
+            ],
             refresh: true,
         }),
-        resolve((name) => {
-            const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-            return pages[`./Pages/${name}.vue`]
-        }),
+        vue({
+            template:{
+                transformAssetUrls:{
+                    base:null,
+                    includeAbsolute: false,
+                }
+            }
+        })
     ],
 });
