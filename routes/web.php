@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {;
+    return \Inertia\Inertia::render('Welcome');
 });
+
+Route::get('/admin', function (){
+    return \Inertia\Inertia::render('Admin/Welcome');
+});
+
+Route::get('/client', function (){
+    return \Inertia\Inertia::render('Client/Welcome');
+});
+
